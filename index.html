@@ -4,8 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="scrip" href="script.js" />
+    <script src="script.js"></script>
     <title>Weather</title>
   </head>
-  <body></body>
+  <body>
+    <header class="topbar">
+      <nav class="container nav">
+        <h1 id="title">myWeather</h1>
+
+        <div class="search">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search for a City"
+          />
+          <button id="search-btn">Search</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container main">
+      <h2>Weather Forecast</h2>
+
+      <section class="location">
+        <h3 class="city">New York</h3>
+        <p class="region">New York, United States</p>
+        <p class="coords">Lat: 40.7128 · Lon: -74.0060</p>
+      </section>
+
+      <section class="card">
+        <p>Current Weather</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>project by Sajal Baral</p>
+        <p>Weather data by Open-Meteo.com</p>
+      </div>
+    </footer>
+  </body>
 </html>
