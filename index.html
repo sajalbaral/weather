@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Weather</title>
   </head>
   <body>
@@ -27,12 +27,12 @@
       <h2>Weather Forecast</h2>
 
       <section class="location">
-        <h3 class="city">New York</h3>
-        <p class="region">New York, United States</p>
-        <p class="coords">Lat: 40.7128 · Lon: -74.0060</p>
+        <h3 id="city">New York</h3>
+        <p id="region">New York, United States</p>
+        <p id="coords">Lat: 40.7128 · Lon: -74.0060</p>
       </section>
 
-      <section class="card">
+      <section id="card">
         <p>Current Weather</p>
       </section>
     </main>

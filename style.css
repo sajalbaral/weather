@@ -77,7 +77,7 @@ h2 {
   font-size: 2.5rem;
 }
 
-.card {
+#card {
   margin: 0 auto;
   width: min(800px, 100%);
   padding: 2rem;
@@ -111,31 +111,17 @@ h2 {
   text-align: center;
 }
 
-.city {
+#city {
   font-size: 2rem;
   font-weight: 600;
 }
 
-.region {
+#region {
   font-size: 1rem;
   color: var(--muted);
 }
 
-.coords {
+#coords {
   font-size: 0.9rem;
   color: var(--muted);
-}
-
-.location-btn {
-  margin-top: 1rem;
-  background: var(--blue);
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.location-btn:hover {
-  opacity: 0.9;
 }
