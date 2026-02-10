@@ -3,6 +3,7 @@ const searchBtn = document.getElementById("search-btn");
 const city = document.getElementById("city");
 const coord = document.getElementById("coords");
 const cardContainer = document.getElementById("card-container");
+const currentTemp = document.getElementById("current-temp");
 
 const state = {
   status: "idle",
@@ -21,6 +22,8 @@ function setState(obj) {
 }
 
 function render() {
+  cardContainer.textContent = "";
+
   if (state.status === "idle") {
     city.textContent = "Enter a City";
     coord.textContent = "";
@@ -34,6 +37,9 @@ function render() {
   if (state.status === "success") {
     city.textContent = "" + state.data.cityCountry;
     coord.textContent = "Lat: " + state.data.lat + " · Lon: " + state.data.lon;
+    currentTemp.textContent =
+      "Current Temperature: " + Math.round(state.data.temp) + "°C";
+    renderCard();
   }
 
   if (state.status === "error") {
@@ -112,6 +118,33 @@ async function search() {
   } catch (err) {
     if (state.requestId !== myId) return;
     setState({ status: "error", data: null, error: err });
+  }
+}
+
+function renderCard() {
+  for (let i = 0; i < 7; i++) {
+    const newSection = document.createElement("section");
+    newSection.classList.add("card");
+
+    const date = document.createElement("p");
+    const max = document.createElement("p");
+    const min = document.createElement("p");
+
+    date.classList.add("card-date");
+    max.classList.add("card-max");
+    min.classList.add("card-min");
+
+    const rawDate = state.data.daysArr[i].date;
+    date.textContent = new Date(rawDate).toLocaleDateString(undefined, {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+    });
+    max.textContent = Math.round(state.data.daysArr[i].high) + "°C";
+    min.textContent = Math.round(state.data.daysArr[i].low) + "°C";
+
+    newSection.append(date, max, min);
+    cardContainer.appendChild(newSection);
   }
 }
 
